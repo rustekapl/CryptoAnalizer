@@ -1,8 +1,7 @@
 package ru.javarush.aleev.cryptoanalizer;
 
 import java.io.*;
-import java.util.Arrays;
-import java.util.Scanner;
+
 
 public class ConsoleRunner {
     public static void main(String[] args) throws IOException {
