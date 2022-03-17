@@ -1,10 +1,16 @@
 package ru.javarush.aleev.cryptoanalizer;
 
+import ru.javarush.aleev.cryptoanalizer.constants.Constants;
+
 import java.io.*;
 import java.util.Scanner;
 
 public class Actions {
-    public static void encode(String fileInput, String fileOutput, int key) throws IOException {
+
+    public static void encode(String[] args) throws IOException {
+        String fileInput = args[0];
+        String fileOutput = args[1];
+        int key = Integer.parseInt(args[2]);
 
         if (fileInput.isEmpty()) {
             System.out.println("Проверьте исходный файл"); //!!! отловить FileNotFound exception!!!
@@ -56,7 +62,10 @@ public class Actions {
         }
     }
 
-    public static void decode(String fileInput, int key) throws IOException {
+    public static void decode(String[] args) throws IOException {
+        String fileInput = args[0];
+        int key = Integer.parseInt(args[1]);
+
         BufferedReader readerDecoder = new BufferedReader(new FileReader(fileInput));
         String line1;
         StringBuilder text1 = new StringBuilder();
@@ -101,7 +110,10 @@ public class Actions {
         System.out.println("--------------");
     }
 
-    public static void bruteForce(String fileInput, String fileOutput) throws IOException {
+    public static void bruteForce(String [] args) throws IOException {
+        String fileInput = args[0];
+        String fileOutput = args[1];
+
         BufferedReader readerBruteForce = new BufferedReader(new FileReader(fileInput));
         String lineBF;
         StringBuilder textForBruteForce = new StringBuilder();

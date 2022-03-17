@@ -1,4 +1,4 @@
-package ru.javarush.aleev.cryptoanalizer;
+package ru.javarush.aleev.cryptoanalizer.constants;
 
 import java.io.File;
 
