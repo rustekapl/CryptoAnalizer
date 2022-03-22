@@ -8,9 +8,9 @@ import java.util.Scanner;
 public class Actions {
 
     public static void encode(String[] args) throws IOException {
-        String fileInput = args[0];
-        String fileOutput = args[1];
-        int key = Integer.parseInt(args[2]);
+        String fileInput = args[1];
+        String fileOutput = args[2];
+        int key = Integer.parseInt(args[3]);
 
         if (fileInput.isEmpty()) {
             System.out.println("Проверьте исходный файл"); //!!! отловить FileNotFound exception!!!
@@ -53,18 +53,18 @@ public class Actions {
                 fileWriterEncoder.close();
 
 
-                System.out.println("--------------");
+                System.out.println("");
                 System.out.print("Encode = ");
                 System.out.println(encode);
-                System.out.println("--------------");
+                System.out.println("");
             } else
                 System.out.println("Вы ввели неправильный сдвиг");
         }
     }
 
     public static void decode(String[] args) throws IOException {
-        String fileInput = args[0];
-        int key = Integer.parseInt(args[1]);
+        String fileInput = args[1];
+        int key = Integer.parseInt(args[2]);
 
         BufferedReader readerDecoder = new BufferedReader(new FileReader(fileInput));
         String line1;
@@ -76,7 +76,7 @@ public class Actions {
         }
 
         System.out.println("text1 = " + text1);
-        System.out.println("--------------");
+        System.out.println("");
 
         char[] temp = new char[text1.length()];
         char[] decode = new char[text1.length()];
@@ -107,12 +107,12 @@ public class Actions {
 
         System.out.print("Decode = ");
         System.out.println(decode);
-        System.out.println("--------------");
+        System.out.println("");
     }
 
     public static void bruteForce(String [] args) throws IOException {
-        String fileInput = args[0];
-        String fileOutput = args[1];
+        String fileInput = args[1];
+        String fileOutput = args[2];
 
         BufferedReader readerBruteForce = new BufferedReader(new FileReader(fileInput));
         String lineBF;
@@ -124,7 +124,7 @@ public class Actions {
         }
 
         System.out.println("textBF = " + textForBruteForce);
-        System.out.println("--------------");
+        System.out.println("");
 
 
         for (int shift = 0; shift < Constants.ALPHABET.length; shift++) {
@@ -184,7 +184,7 @@ public class Actions {
 
         System.out.print("BruteForce = ");
         System.out.println(bruteForce);
-        System.out.println("--------------");
+        System.out.println("");
     }
 
 }
