@@ -3,6 +3,8 @@ package ru.javarush.aleev.cryptoanalizer.commands;
 import ru.javarush.aleev.cryptoanalizer.constants.Constants;
 import ru.javarush.aleev.cryptoanalizer.entity.Result;
 import ru.javarush.aleev.cryptoanalizer.entity.ResultCode;
+import ru.javarush.aleev.cryptoanalizer.exceptions.AppException;
+
 import java.io.*;
 
 public class Decoder implements Action {
@@ -12,7 +14,7 @@ public class Decoder implements Action {
         String fileInput = parametrs[0];
         String fileOutput = parametrs[1];
         int key = Integer.parseInt(parametrs[2]);
-        String line1 = null;
+        String line1;
         StringBuilder text1 = new StringBuilder();
 
 
@@ -25,7 +27,7 @@ public class Decoder implements Action {
                 try {
                     if ((line1 = readerDecoder.readLine()) == null) break;
                 } catch (IOException e) {
-                    e.printStackTrace();
+                    throw new AppException();
                 }
                 text1.append(line1);
             }
@@ -55,7 +57,7 @@ public class Decoder implements Action {
             fileWriterDecoder.close();
 
         } catch (IOException e) {
-            e.printStackTrace();
+            throw new AppException();
         }
 
 

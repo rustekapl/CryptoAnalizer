@@ -2,6 +2,8 @@ package ru.javarush.aleev.cryptoanalizer.commands;
 import ru.javarush.aleev.cryptoanalizer.constants.Constants;
 import ru.javarush.aleev.cryptoanalizer.entity.Result;
 import ru.javarush.aleev.cryptoanalizer.entity.ResultCode;
+import ru.javarush.aleev.cryptoanalizer.exceptions.AppException;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -18,7 +20,7 @@ public class BruteForce implements Action {
 
 
 //Read to Buffer from encode.txt
-        String line1 = null;
+        String line1;
         StringBuilder text1 = new StringBuilder();
         BufferedReader readerDecoder;
         try {
@@ -28,7 +30,7 @@ public class BruteForce implements Action {
             try {
                 if ((line1 = readerDecoder.readLine()) == null) break;
             } catch (IOException e) {
-                e.printStackTrace();
+               throw new AppException();
             }
             text1.append(line1);
         }
@@ -102,7 +104,7 @@ public class BruteForce implements Action {
             fileWriterDecoder.close();
 
         } catch (IOException e) {
-            e.printStackTrace();
+            throw new AppException();
         }
 
         return new Result(" BruteForce all right", ResultCode.OK);
