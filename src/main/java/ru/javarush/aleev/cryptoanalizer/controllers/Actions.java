@@ -6,8 +6,6 @@ import ru.javarush.aleev.cryptoanalizer.commands.Decoder;
 import ru.javarush.aleev.cryptoanalizer.commands.Encoder;
 import ru.javarush.aleev.cryptoanalizer.exceptions.AppException;
 
-import java.util.Locale;
-
 public enum Actions {
     ENCODE(new Encoder()),
     DECODE(new Decoder()),

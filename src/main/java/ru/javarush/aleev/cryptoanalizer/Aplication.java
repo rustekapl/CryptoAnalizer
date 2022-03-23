@@ -4,7 +4,6 @@ import ru.javarush.aleev.cryptoanalizer.controllers.MainController;
 import ru.javarush.aleev.cryptoanalizer.entity.Result;
 import ru.javarush.aleev.cryptoanalizer.exceptions.AppException;
 
-import java.io.IOException;
 import java.util.Arrays;
 
 public class Aplication {
@@ -20,11 +19,7 @@ public class Aplication {
         if (args.length > 0) {
             String action = args[0];
             String[] parameters = Arrays.copyOfRange(args, 1, args.length);
-            try {
-                return mainController.doAction(action, parameters);
-            } catch (IOException e) {
-                throw new AppException();
-            }
+            return mainController.doAction(action, parameters);
         }
         else {
 

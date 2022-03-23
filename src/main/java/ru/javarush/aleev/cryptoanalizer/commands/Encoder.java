@@ -32,7 +32,7 @@ public class Encoder implements Action {
                         try {
                             if ((readLine = br.readLine()) == null) break;
                         } catch (IOException e) {
-                            throw new AppException();
+                            throw new AppException("Check input file");
                         }
                         text.append(readLine);
                     }
